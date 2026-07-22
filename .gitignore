@@ -1,0 +1,11 @@
+# The readable page. Never commit this: publishing it would defeat the
+# encryption in PHD-budget-configurator.html. Edit it here, run build.js,
+# commit the built file only.
+src/
+
+# Google Drive / OS cruft
+desktop.ini
+Thumbs.db
+.DS_Store
+*.tmp
+~$*
