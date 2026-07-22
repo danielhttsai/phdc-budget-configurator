@@ -34,16 +34,17 @@ the top of the `<script>` block in `src/app.html`. Everything else is derived fr
 - Automatic shared-work credits: where two databases in the same country are both selected,
   the study design, variable harmonisation, programming and QC that would otherwise be counted
   twice are credited back.
-- Two fee layers expressed as **shares of the total contract value**, applied by gross-up:
+- Two fee layers applied by sequential gross-up, each a share of its own stage:
 
   ```
-  subtotal = direct   / (1 − 0.18)     central scientific and network coordination
-  total    = subtotal / (1 − 0.20)     institutional indirect costs
+  subtotal = direct   / (1 − 0.18)     coordination = 18% of the research subtotal
+  total    = subtotal / (1 − 0.20)     indirect costs = 20% of the contract value
   ```
 
-  Equivalently `total = direct ÷ 0.656`. Quoting these as mark-ups on direct cost instead
-  (`× 1.18 × 1.20`) would deliver only 15.25% and 16.7% of the contract value, and the shortfall
-  would come out of the direct research budget.
+  Equivalently `total = direct ÷ 0.656`. Coordination works out to 14.4% of the final
+  contract value, indirect costs to exactly 20.0%; the ledger shows both shares. Quoting
+  the same rates as mark-ups on direct cost instead (`× 1.18 × 1.20`) would deliver less,
+  and the shortfall would come out of the direct research budget.
 - Auto-generated proposal paragraph, clipboard and JSON export, and a print stylesheet that
   flattens the page into a one-page quotation sheet.
 
