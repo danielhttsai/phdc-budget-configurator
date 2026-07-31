@@ -1,27 +1,36 @@
 /*
- * Build the password-protected page.
+ * Build a password-protected page.
  *
- *   node build.js "<password>"
+ *   node build.js "<password>" [src] [out]
  *
- * Reads src/app.html (the readable page, never committed), encrypts it with
- * AES-256-GCM under a key derived from the password by PBKDF2-SHA256, and
- * writes PHD-budget-configurator.html: a small unlock shell carrying nothing
- * but the ciphertext. Without the password the published file is noise, which
- * is what lets the repository stay public.
+ * Defaults to src/app.html -> PHD-budget-configurator.html. Pass a source and
+ * output path to build a partner-specific variant, e.g.
  *
- * Re-run this after every edit to src/app.html, then commit and push.
+ *   node build.js "<password>" src/q2.html q2.html
+ *
+ * The source (the readable page, never committed) is encrypted with
+ * AES-256-GCM under a key derived from the password by PBKDF2-SHA256, and the
+ * output is a small unlock shell carrying nothing but the ciphertext. Without
+ * the password the published file is noise, which is what lets the repository
+ * stay public. Each variant should get its own password.
+ *
+ * Re-run this after every edit to the source, then commit and push.
  */
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 
 const ITERATIONS = 600000;          // OWASP guidance for PBKDF2-SHA256
-const SRC = path.join(__dirname, "src", "app.html");
-const OUT = path.join(__dirname, "PHD-budget-configurator.html");
+const SRC = path.resolve(__dirname, process.argv[3] || path.join("src", "app.html"));
+const OUT = path.resolve(__dirname, process.argv[4] || "PHD-budget-configurator.html");
 
 const password = process.argv[2];
 if (!password) {
-  console.error('Usage: node build.js "<password>"');
+  console.error('Usage: node build.js "<password>" [src] [out]');
+  process.exit(1);
+}
+if (path.resolve(OUT).startsWith(path.resolve(__dirname, "src") + path.sep)) {
+  console.error("refusing to write output into src/ (it is git-ignored plaintext)");
   process.exit(1);
 }
 

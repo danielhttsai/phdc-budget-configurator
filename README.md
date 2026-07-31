@@ -22,6 +22,10 @@ repository.
 2. Re-encrypt: `node build.js "<password>"`
 3. Commit and push `PHD-budget-configurator.html`. Pages rebuilds in a minute or two.
 
+Partner-specific variants follow the same mechanism with their own git-ignored source,
+their own output file and their own password:
+`node build.js "<password>" src/<name>.html <name>.html`
+
 Skipping step 2 publishes an unchanged page, so it is worth checking the printed byte count.
 
 To change a price, a database profile or a credit, edit the `ITEMS` and `BUNDLES` arrays near
