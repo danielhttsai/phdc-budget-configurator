@@ -66,13 +66,12 @@ form of the link to a sponsor.
 | `PHD-budget-configurator.html` | Built output: unlock screen plus ciphertext |
 | `index.html` | Redirect so the repository root serves the configurator |
 | `HNSCC/index.html` | Built output of the study-specific variant |
-| `program/index.html` | Capability page. **The one page that is neither encrypted nor built** |
 | `robots.txt` | Keeps the page out of search indexes |
 
-`program/index.html` carries no prices, so it is committed in the clear and edited in place: no
-`src/` source, no `build.js` step, no password. It does share the design system, and takes its
-inlined Inter font and logo data URIs from `src/q2.html`. Everything on it is an illustrative
-worked example built on a fictional indication; see the disclosure block on the page itself.
+The capability page that used to sit at `program/` now lives in its own repository,
+[danielhttsai/phdc-rwe](https://github.com/danielhttsai/phdc-rwe), published at
+<https://danielhttsai.github.io/phdc-rwe/>. It carries no prices, is not encrypted, and shares
+this design system by copying the inlined font and logo data URIs out of `src/q2.html`.
 
 ## Status
 
