@@ -144,6 +144,77 @@ section{margin-bottom:38px}
 }
 .protocol li.ep{border-color:var(--teal);color:var(--teal)}
 
+/* ---- sub-stage heading inside the worked example ---- */
+.substage{display:flex;align-items:baseline;gap:12px;margin:34px 0 13px}
+.substage:first-of-type{margin-top:22px}
+.substage .sn{
+  font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;
+  color:#fff;background:var(--teal);border-radius:2px;padding:3px 8px;flex:none;
+}
+.substage h3{font-size:16px;font-weight:750;letter-spacing:-.015em}
+.substage .rule{flex:1;height:1px;background:var(--line)}
+.substage .hint{font-size:12px;color:var(--muted);flex:none}
+.sub-intro{font-size:13px;color:var(--ink-2);line-height:1.6;max-width:80ch;margin-bottom:14px}
+
+/* ---- Stage 1: requirement chips + capability matrix ---- */
+.reqs{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:14px 16px;box-shadow:var(--shadow);margin-bottom:16px;
+}
+.reqs .rlab{
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+  font-weight:700;display:block;margin-bottom:9px;
+}
+.reqs .list{display:flex;flex-wrap:wrap;gap:7px}
+.reqs label{
+  display:inline-flex;align-items:center;gap:7px;cursor:pointer;
+  border:1px solid var(--line-strong);border-radius:2px;padding:5px 10px 5px 8px;
+  font-size:12.5px;color:var(--ink-2);transition:border-color .12s,background .12s,color .12s;
+}
+.reqs label.on{border-color:var(--teal);background:var(--teal-soft);color:var(--ink);font-weight:600}
+.reqs input{width:14px;height:14px;margin:0}
+
+.cap-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--surface);box-shadow:var(--shadow)}
+.cap{border-collapse:separate;border-spacing:0;width:100%;min-width:660px;table-layout:fixed}
+.cap th,.cap td{border-bottom:1px solid var(--line);padding:9px 8px}
+.cap tr:last-child th,.cap tr:last-child td{border-bottom:0}
+.cap thead th{
+  font-size:10.5px;letter-spacing:.06em;color:var(--ink-2);font-weight:700;
+  text-align:center;vertical-align:bottom;line-height:1.3;
+  border-bottom:1px solid var(--line-strong);
+}
+.cap thead th.req{color:var(--teal)}
+.cap thead th.req::after{content:"required";display:block;font-size:9px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--teal);font-weight:800;margin-top:2px}
+.cap-db{width:23%;text-align:left;font-size:13.5px;font-weight:650;color:var(--ink)}
+.cap-db em{display:block;font-style:normal;font-family:var(--font-num);font-size:10px;
+  color:var(--muted);font-weight:600;letter-spacing:.04em}
+.cap td.dot{text-align:center;font-size:15px;line-height:1}
+.cap td.dot i{font-style:normal}
+.d2{color:var(--teal)}
+.d1{color:var(--amber)}
+.d0{color:var(--line-strong)}
+.cap td.miss{background:var(--amber-soft)}
+.cap td.miss i{color:var(--amber);font-weight:700}
+.cap-v{width:19%;text-align:right;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+.cap tr.excluded .cap-db{color:var(--muted);font-weight:450}
+.cap-legend{
+  display:flex;gap:16px;flex-wrap:wrap;margin-top:9px;
+  font-size:11px;color:var(--muted);font-family:var(--font-num);
+}
+.cap-legend b{font-weight:400;font-size:14px;line-height:1;vertical-align:-1px}
+.gate{
+  margin-top:16px;background:var(--surface);border:1px solid var(--line);
+  border-left:3px solid var(--green);border-radius:var(--radius);
+  padding:14px 16px;box-shadow:var(--shadow);
+  display:flex;gap:14px;align-items:center;flex-wrap:wrap;
+}
+.gate.hard{border-left-color:var(--amber)}
+.gate p{flex:1 1 320px;min-width:260px;font-size:13px;color:var(--ink-2);line-height:1.6}
+.gate p b{color:var(--ink);font-weight:700}
+.gate .btn{flex:none}
+
 /* ---- criteria rows ---- */
 .rows{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
 .row{
@@ -304,14 +375,14 @@ details.note summary{
 details.note summary::-webkit-details-marker{display:none}
 details.note summary::before{content:"＋";font-family:var(--font-num);color:var(--teal)}
 details.note[open] summary::before{content:"−"}
-.notebody{border-left:2px solid var(--line-strong);padding-left:12px;margin-top:11px;max-width:78ch}
+.notebody{border-left:2px solid var(--line-strong);padding-left:12px;margin-top:11px;max-width:78ch;overflow-x:auto}
 .notebody p{font-size:12.5px;color:var(--ink-2);line-height:1.62}
 .notebody p + p{margin-top:9px}
 .notebody .lbl{
   font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);
   font-weight:800;display:block;margin-bottom:3px;
 }
-table.par{border-collapse:collapse;font-size:12px;width:100%;max-width:560px;margin:10px 0 4px}
+table.par{border-collapse:collapse;font-size:12px;width:100%;min-width:480px;max-width:600px;margin:10px 0 4px}
 table.par th,table.par td{text-align:right;padding:5px 9px;border-bottom:1px solid var(--line)}
 table.par th:first-child,table.par td:first-child{text-align:left}
 table.par th{
@@ -478,6 +549,37 @@ footer{
       </ul>
     </div>
 
+    <div class="substage">
+      <span class="sn">Stage 1</span>
+      <h3>Data and trial feasibility</h3>
+      <span class="rule"></span>
+      <span class="hint">module 1</span>
+    </div>
+    <p class="sub-intro">Before any analysis is commissioned, every candidate database is screened against what the protocol actually needs. Tick the data elements this protocol requires and the matrix decides which databases can answer it, and which are excluded with a documented reason.</p>
+
+    <div class="reqs no-print">
+      <span class="rlab">This protocol requires</span>
+      <div class="list" id="reqs"></div>
+    </div>
+
+    <div class="cap-wrap">
+      <table class="cap" id="cap"></table>
+    </div>
+    <div class="cap-legend">
+      <span><b class="d2">●</b> captured routinely</span>
+      <span><b class="d1">◐</b> partial or subset only</span>
+      <span><b class="d0">○</b> not available</span>
+    </div>
+    <div class="gate" id="gate"></div>
+
+    <div class="substage">
+      <span class="sn">Stage 2</span>
+      <h3>Study-based trial planning analyses</h3>
+      <span class="rule"></span>
+      <span class="hint">modules 2, 3 and 5</span>
+    </div>
+    <p class="sub-intro">The databases that survived Stage 1 now run the protocol. Each criterion is applied in sequence, and every country is recomputed for eligible patients, one-year risk and expected events.</p>
+
     <div class="grid">
       <div>
 
@@ -577,12 +679,40 @@ footer{
    1. Illustrative parameters: the single source of truth.
    Every number below is invented. See the disclosure block.
    ============================================================ */
+/* cap: 2 = captured routinely, 1 = partial or subset only, 0 = not available.
+   These are the Stage 1 screening answers, and they are what explains the
+   Stage 2 retention fractions further down. */
 var COUNTRIES = [
-  { id:"tw", name:"Taiwan",    db:"NHIRD",     covered: 23.6e6, base:  99000 },
-  { id:"kr", name:"Korea",     db:"NHIS-NHID", covered: 51.4e6, base: 162500 },
-  { id:"jp", name:"Japan",     db:"NDB",       covered:124.0e6, base: 422000 },
-  { id:"hk", name:"Hong Kong", db:"CDARS",     covered:  7.4e6, base:  33000 },
-  { id:"th", name:"Thailand",  db:"HDC",       covered: 47.0e6, base: 127000 }
+  { id:"tw", name:"Taiwan",    db:"NHIRD",     covered: 23.6e6, base:  99000,
+    cap:{scale:2, dx:2, rx:2, lab:1, stage:0, hosp:2, death:2, long:2} },
+  { id:"kr", name:"Korea",     db:"NHIS-NHID", covered: 51.4e6, base: 162500,
+    cap:{scale:2, dx:2, rx:2, lab:2, stage:0, hosp:2, death:2, long:2} },
+  { id:"jp", name:"Japan",     db:"NDB",       covered:124.0e6, base: 422000,
+    cap:{scale:2, dx:2, rx:2, lab:1, stage:0, hosp:2, death:1, long:1} },
+  { id:"hk", name:"Hong Kong", db:"CDARS",     covered:  7.4e6, base:  33000,
+    cap:{scale:1, dx:2, rx:2, lab:2, stage:1, hosp:2, death:2, long:1} },
+  { id:"th", name:"Thailand",  db:"HDC",       covered: 47.0e6, base: 127000,
+    cap:{scale:1, dx:2, rx:2, lab:2, stage:0, hosp:2, death:1, long:1} }
+];
+
+/* The Stage 1 screening dimensions. `on` is the default protocol requirement. */
+var CAPS = [
+  { id:"scale", label:"National-scale population", on:false,
+    note:"Hong Kong covers the public system and Thailand's HDC the MOPH facilities, so neither is national in the sense the other three are." },
+  { id:"dx",    label:"Diagnoses, ICD-coded", on:true,
+    note:"Universal across the network." },
+  { id:"rx",    label:"Drug exposure", on:true,
+    note:"Dispensing or prescribing captured in every source." },
+  { id:"lab",   label:"Laboratory values", on:true,
+    note:"Taiwan's claims spine carries them only for a linked subset; Japan's NDB holds specific health checkups, which run from age 40 to 74." },
+  { id:"stage", label:"Disease severity or staging", on:false,
+    note:"Claims data do not record stage. Only a source built on hospital records carries anything close, and then incompletely." },
+  { id:"hosp",  label:"Hospitalisation", on:true,
+    note:"Admissions captured everywhere." },
+  { id:"death", label:"Mortality linkage", on:false,
+    note:"Vital-status linkage is routine in Taiwan, Korea and Hong Kong; partial in Japan's NDB and Thailand's HDC." },
+  { id:"long",  label:"Continuous longitudinal follow-up", on:true,
+    note:"Single-payer lifetime enrolment in Taiwan and Korea. Japan's NDB identifier is derived from insurer details and breaks on a job change; Hong Kong loses private-sector care; Thailand loses patients moving between schemes." }
 ];
 
 /* Order in this array IS the funnel order. Each criterion carries a
@@ -641,7 +771,7 @@ var PRESETS = [
 ];
 
 var MODULES = [
-  { n:1, stage:"Stage 1", title:"Multi-country feasibility assessment",
+  { n:1, stage:"Stage 1", demo:true, title:"Multi-country feasibility assessment",
     want:"Which AsPEN databases can answer this at all?",
     does:"Assess each database for population coverage, drug and exposure capture, diagnosis coding, endpoint availability, laboratory values, mortality linkage and follow-up completeness.",
     gives:"Database feasibility matrix and a shortlist of databases that proceed." },
@@ -681,9 +811,25 @@ var ALPHA_Z = 1.959963985, POWER_Z = 0.841621234, RRR = 0.25;
    2. State. No localStorage on purpose: every visitor must
       arrive at the default scenario for the page to make sense.
    ============================================================ */
-var S = { crit:{}, ctry:{}, endpoint:"hosp", view:"patients", nudged:false };
+var S = { crit:{}, ctry:{}, req:{}, endpoint:"hosp", view:"patients", nudged:false };
 CRITERIA.forEach(function(k){ S.crit[k.id] = 1; });
 COUNTRIES.forEach(function(c){ S.ctry[c.id] = 1; });
+CAPS.forEach(function(p){ S.req[p.id] = p.on ? 1 : 0; });
+
+/* Stage 1 screening: a database is excluded when the protocol requires
+   something it does not hold at all, and carries a caveat when it holds
+   it only in part. */
+function screen(c){
+  var missing = [], partial = [];
+  CAPS.forEach(function(p){
+    if(!S.req[p.id]) return;
+    if(c.cap[p.id] === 0) missing.push(p);
+    else if(c.cap[p.id] === 1) partial.push(p);
+  });
+  return { c:c, missing:missing, partial:partial,
+           pass: missing.length === 0,
+           verdict: missing.length ? "Excluded" : (partial.length ? "Caveat" : "Proceeds") };
+}
 
 /* ============================================================
    3. Maths
@@ -767,6 +913,122 @@ var fxTable  = document.getElementById("fx");
 var csHost   = document.getElementById("cs");
 var cell = {};   /* cell[stepId][countryId] = <td> */
 var colHead = {};
+
+var capCell = {};   /* capCell[capId][countryId] = <td> */
+
+function buildReqs(){
+  var host = document.getElementById("reqs");
+  host.textContent = "";
+  CAPS.forEach(function(p){
+    var lab = el("label");
+    lab.dataset.id = p.id;
+    lab.title = p.note;
+    var cb = document.createElement("input");
+    cb.type = "checkbox"; cb.checked = !!S.req[p.id];
+    cb.addEventListener("change", function(){
+      S.req[p.id] = cb.checked ? 1 : 0; renderAll();
+    });
+    lab.appendChild(cb);
+    lab.appendChild(document.createTextNode(p.label));
+    host.appendChild(lab);
+  });
+}
+
+function buildCapMatrix(){
+  var t = document.getElementById("cap");
+  t.textContent = "";
+  var thead = document.createElement("thead");
+  var hr = document.createElement("tr");
+  hr.appendChild(el("th", "cap-db", "Database"));
+  CAPS.forEach(function(p){
+    var th = el("th", null, p.label);
+    th.dataset.id = p.id;
+    th.title = p.note;
+    hr.appendChild(th);
+  });
+  hr.appendChild(el("th", "cap-v", "Screening"));
+  thead.appendChild(hr);
+  t.appendChild(thead);
+
+  var tb = document.createElement("tbody");
+  COUNTRIES.forEach(function(c){
+    var tr = document.createElement("tr");
+    tr.dataset.id = c.id;
+    var th = el("th", "cap-db", c.name);
+    th.appendChild(el("em", null, c.db));
+    tr.appendChild(th);
+    CAPS.forEach(function(p){
+      var td = el("td", "dot");
+      var v = c.cap[p.id];
+      var i = el("i", "d" + v, v === 2 ? "●" : (v === 1 ? "◐" : "○"));
+      i.title = p.label + ": " + (v === 2 ? "captured routinely" : v === 1 ? "partial or subset only" : "not available");
+      td.appendChild(i);
+      if(!capCell[p.id]) capCell[p.id] = {};
+      capCell[p.id][c.id] = td;
+      tr.appendChild(td);
+    });
+    tr.appendChild(el("td", "cap-v"));
+    tb.appendChild(tr);
+  });
+  t.appendChild(tb);
+}
+
+function renderCap(){
+  var t = document.getElementById("cap");
+  /* mark the required columns */
+  t.querySelectorAll("thead th[data-id]").forEach(function(th){
+    th.classList.toggle("req", !!S.req[th.dataset.id]);
+  });
+  var passed = [], excluded = [];
+  COUNTRIES.forEach(function(c){
+    var s = screen(c);
+    (s.pass ? passed : excluded).push(s);
+    var tr = t.querySelector('tbody tr[data-id="' + c.id + '"]');
+    tr.classList.toggle("excluded", !s.pass);
+    CAPS.forEach(function(p){
+      var td = capCell[p.id][c.id];
+      td.classList.toggle("miss", !!S.req[p.id] && c.cap[p.id] === 0);
+    });
+    var v = tr.querySelector(".cap-v");
+    v.textContent = s.verdict;
+    v.className = "cap-v " + (s.verdict === "Proceeds" ? "v-comf" : s.verdict === "Caveat" ? "v-tight" : "v-no");
+  });
+
+  /* the gate: what Stage 1 concluded, and the button that acts on it */
+  var gate = document.getElementById("gate");
+  gate.textContent = "";
+  gate.className = "gate" + (excluded.length ? " hard" : "");
+  var p = el("p");
+  if(excluded.length === 0){
+    p.appendChild(el("b", null, "All " + COUNTRIES.length + " databases proceed to Stage 2."));
+    p.appendChild(document.createTextNode(
+      " " + passed.filter(function(s){ return s.partial.length; }).length +
+      " of them carry a caveat, which is what the retention fractions in Stage 2 encode: a partial capture removes patients rather than blocking the study."));
+  } else {
+    var names = excluded.map(function(s){ return s.c.name; });
+    p.appendChild(el("b", null,
+      excluded.length + " of " + COUNTRIES.length + " databases are excluded before any analysis is run: " + names.join(", ") + "."));
+    var reasons = {};
+    excluded.forEach(function(s){ s.missing.forEach(function(m){ reasons[m.label] = 1; }); });
+    p.appendChild(document.createTextNode(
+      " The blocking requirement is " + Object.keys(reasons).map(function(r){ return r.toLowerCase(); }).join(" and ") +
+      ". This is the finding Stage 1 exists to produce — one line in the protocol, and the network shrinks to " +
+      passed.length + " database" + (passed.length === 1 ? "" : "s") + ", before a single query is written."));
+  }
+  gate.appendChild(p);
+
+  var synced = COUNTRIES.every(function(c){ return !!S.ctry[c.id] === screen(c).pass; });
+  if(!synced){
+    var btn = el("button", "btn no-print", "Carry this into Stage 2");
+    btn.type = "button";
+    btn.addEventListener("click", function(){
+      COUNTRIES.forEach(function(c){ S.ctry[c.id] = screen(c).pass ? 1 : 0; });
+      renderAll();
+      document.getElementById("crit").scrollIntoView({ behavior:"smooth", block:"start" });
+    });
+    gate.appendChild(btn);
+  }
+}
 
 function buildCriteria(){
   critHost.textContent = "";
@@ -1025,6 +1287,7 @@ function render(){
     vn.className = "cs-verdict " + v.c;
   });
 
+  renderCap();
   renderCard(net);
   renderCallout(net);
   renderQA(net);
@@ -1222,7 +1485,8 @@ function renderQA(net){
 function writeHash(){
   var c = CRITERIA.map(function(k){ return S.crit[k.id] ? "1" : "0"; }).join("");
   var t = COUNTRIES.map(function(x){ return S.ctry[x.id] ? "1" : "0"; }).join("");
-  var h = "#c=" + c + "&t=" + t + "&e=" + S.endpoint + "&v=" + S.view;
+  var r = CAPS.map(function(p){ return S.req[p.id] ? "1" : "0"; }).join("");
+  var h = "#c=" + c + "&t=" + t + "&r=" + r + "&e=" + S.endpoint + "&v=" + S.view;
   try{ history.replaceState(null, "", h); }catch(e){}
 }
 function readHash(){
@@ -1239,6 +1503,9 @@ function readHash(){
   }
   if(q.t && q.t.length === COUNTRIES.length){
     COUNTRIES.forEach(function(x, i){ S.ctry[x.id] = q.t.charAt(i) === "1" ? 1 : 0; });
+  }
+  if(q.r && q.r.length === CAPS.length){
+    CAPS.forEach(function(p, i){ S.req[p.id] = q.r.charAt(i) === "1" ? 1 : 0; });
   }
   if(q.e === "hosp" || q.e === "death") S.endpoint = q.e;
   if(q.v === "patients" || q.v === "events") S.view = q.v;
@@ -1277,6 +1544,8 @@ function renderControls(){
 function renderAll(){ render(); renderControls(); writeHash(); }
 
 readHash();
+buildReqs();
+buildCapMatrix();
 buildCriteria();
 buildMatrix();
 buildStrip();
