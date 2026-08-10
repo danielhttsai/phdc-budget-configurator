@@ -65,7 +65,14 @@ form of the link to a sponsor.
 | `build.js` | Encrypts `src/app.html` into the published file |
 | `PHD-budget-configurator.html` | Built output: unlock screen plus ciphertext |
 | `index.html` | Redirect so the repository root serves the configurator |
+| `HNSCC/index.html` | Built output of the study-specific variant |
+| `program/index.html` | Capability page. **The one page that is neither encrypted nor built** |
 | `robots.txt` | Keeps the page out of search indexes |
+
+`program/index.html` carries no prices, so it is committed in the clear and edited in place: no
+`src/` source, no `build.js` step, no password. It does share the design system, and takes its
+inlined Inter font and logo data URIs from `src/q2.html`. Everything on it is an illustrative
+worked example built on a fictional indication; see the disclosure block on the page itself.
 
 ## Status
 
